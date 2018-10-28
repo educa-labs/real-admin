@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Material Design for Bootstrap fonts and icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+
+    <!-- Material Design for Bootstrap CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Real Webpage Admin</title>
+  </head>
+  <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Real</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onClick='logout()'>Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="projects.html">Projects</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0" id='loginForm'>
+                    <input class="form-control mr-sm-2" type="email" placeholder="mail" aria-label="Search" id='mailLogin'>
+                    <input class="form-control mr-sm-2" type="passwords" placeholder="password" aria-label="Search" id='passwordLogin'>
+                    <button class="btn btn-outline-success my-2 my-sm-0" onClick='login()' type="submit">Login</button>
+                </form>
+            </div>
+        </nav>
+  </header>
+  <body>
+      <div class="container" id='designersContainer'>
+
+          <div class="row">
+
+                <div class="col-sm">
+                    <h1>All Designers</h1>
+                    <table class="table">
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nickname</th>
+                        <th scope="col">Mail</th>
+                        <th scope="col">Instagram</th>
+                        </tr>
+                    </thead>
+                    <tbody id='designers'>
+
+                    </tbody>
+                    </table>
+                </div>
+                
+                <div class="col-sm">
+                    <h1>New Designer</h1>
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="bmd-label-floating">Email address</label>
+                            <input type="email" class="form-control" id="emailInput">
+                        </div>
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Nickname</label>
+                            <input type="text" class="form-control" id="nicknameInput">
+                        </div>
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Instagram</label>
+                            <input type="text" class="form-control" id="instagramInput">
+                        </div>
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Linkedin</label>
+                            <input type="text" class="form-control" id="linkedinInput">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleTextarea" class="bmd-label-floating">Description</label>
+                            <textarea class="form-control" id="descriptionInput" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFile" class="bmd-label-floating">Image</label>
+                            <input type="file" class="form-control-file" id="imageInput">
+                        </div>
+                        <button class="btn btn-default">Cancel</button>
+                        <button type="submit" onClick='createDesigner()' class="btn btn-primary btn-raised">Submit</button>
+                    </form>
+                </div>
+          </div>
+      </div>
+        
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+    <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
+    <script src='firebase-client.js'></script>
+
+  </body>
+</html>
