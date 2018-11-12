@@ -39,34 +39,46 @@ db.collection("designers").get().then((querySnapshot) => {
 //     console.log(doc.data().nickname)
 // })
 
-const uploadImage = function(){
-
+const uploadImage = async function(){
+    const storageRef = firebase.storage().ref()
+    const imgs = document.getElementById('imageInput').files;
+    console.log(imgs);
+    throw new Exception();
 }
 
 const createDesigner = function(){
-    const eMail = document.getElementById('emailInput').value;
-    const image = "";
-    const nickname = document.getElementById('nicknameInput').value;
-    const instagram = document.getElementById('instagramInput').value;
-    const linkedin = document.getElementById('linkedinInput').value;
-    const description = document.getElementById('descriptionInput').value;
-    const newDesigner = {
-        eMail,
-        image,
-        instagram,
-        linkedin,
-        nickname,
-        description
-    }
-    db.collection("designers").add(newDesigner)
-    .then(()=>{
-       alert("New designer added."); 
+    uploadImage()
+    .then((link)=>{
+        const eMail = document.getElementById('emailInput').value;
+        const image = link;
+        const nickname = document.getElementById('nicknameInput').value;
+        const instagram = document.getElementById('instagramInput').value;
+        const linkedin = document.getElementById('linkedinInput').value;
+        const description = document.getElementById('descriptionInput').value;
+        const newDesigner = {
+            eMail,
+            image,
+            instagram,
+            linkedin,
+            nickname,
+            description
+        }
+        db.collection("designers").add(newDesigner)
+        .then(()=>{
+           alert("New designer added."); 
+        })
+        .catch(()=>{
+           alert("You are not logged in."); 
+        })
+        console.log(newDesigner);
     })
-    .catch(()=>{
-       alert("You are not logged in."); 
+    .catch((e)=>{
+        alert('Ocurrió un error');
     })
-    console.log(newDesigner);
 }
+
+
+
 
 
 // Test authentication
